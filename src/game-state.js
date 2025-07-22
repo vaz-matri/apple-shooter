@@ -1,7 +1,7 @@
 const gameState = {
     position: {
-        left: 10,
-        top: 10
+        left: 0,
+        top: 0
     }
 }
 

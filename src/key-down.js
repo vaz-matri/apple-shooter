@@ -1,11 +1,20 @@
-import { moveLeft, moveRight } from './game-logic.js'
+import { moveDown, moveLeft, moveRight, moveUp } from './game-logic.js'
 
 const keyPress = (fence) => {
     fence.addEventListener('keydown', (event) => {
-        if (event.key === 'ArrowRight') {
-            moveRight()
-        } else if (event.key === 'ArrowLeft') {
-            moveLeft()
+        switch (event.key) {
+            case 'ArrowRight':
+                moveRight()
+                break
+            case 'ArrowLeft':
+                moveLeft()
+                break
+            case 'ArrowUp':
+                moveUp()
+                break
+            case 'ArrowDown':
+                moveDown()
+                break
         }
     })
 }
