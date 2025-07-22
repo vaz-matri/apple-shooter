@@ -26,16 +26,33 @@ const appleShooter = (app) => {
     apple.style.height = `${gameState.apple.height}px`
     apple.style.width = `${gameState.apple.width}px`
     apple.style.background = 'green'
-    apple.style.left = `${gameState.position.left}px`
-    apple.style.top = `${gameState.position.top}px`
     apple.style.position = 'absolute'
 
+    const renderMove = () => {
+        console.log('log left position', gameState.position.left)
+
+        apple.style.left = `${gameState.position.left}px`
+        apple.style.top = `${gameState.position.top}px`
+    }
+
     div.appendChild(apple)
+
+    renderMove()
 
     app.appendChild(div)
 
     div.addEventListener('keydown', (event) => {
-        console.log('log key', event.key)
+        if (event.key === 'ArrowRight') {
+            let left = gameState.position.left
+            if (left >= (gameState.fence.width - gameState.apple.width)) {
+                // do nothing
+            } else {
+                left = left + 5
+                gameState.position.left = left
+
+                renderMove()
+            }
+        }
     })
 }
 
