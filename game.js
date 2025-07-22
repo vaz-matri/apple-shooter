@@ -5,6 +5,7 @@ const appleShooter = (app) => {
     div.style.width = '500px'
     div.style.border = '1px solid blue'
     div.style.position = 'relative'
+    div.tabIndex = 0
 
     const apple = document.createElement('div')
     apple.style.height = '50px'
@@ -17,6 +18,10 @@ const appleShooter = (app) => {
     div.appendChild(apple)
 
     app.appendChild(div)
+
+    div.addEventListener('keydown', (event) => {
+        console.log('log key', event.key)
+    })
 }
 
 export default appleShooter
